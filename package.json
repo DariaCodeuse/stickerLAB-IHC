@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
-    "@tsconfig/svelte": "^3.0.0",
+    "@tsconfig/svelte": "^5.0.4",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "postcss-load-config": "^4.0.1",
@@ -20,12 +20,13 @@
     "svelte-preprocess": "^4.10.7",
     "tailwindcss": "^3.1.5",
     "tslib": "^2.5.0",
-    "typescript": "^4.9.3",
+    "typescript": "^4.9.5",
     "vite": "^4.1.0"
   },
   "dependencies": {
     "@cloudinary/url-gen": "1.9.1",
     "dropzone": "6.0.0-beta.2",
+    "svelte-routing": "^2.13.0",
     "two-up-element": "1.0.1"
   }
 }
