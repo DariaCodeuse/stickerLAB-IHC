@@ -9,11 +9,13 @@
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "moduleResolution": "node", // Compatible con TS 4.9.5
-    "baseUrl": "./",            // Necesario para el alias
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]          // Define el alias `@` para TypeScript
-    }
+      "@/*": ["src/*"]
+    },
+    "types": ["svelte"]
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
   "references": [{ "path": "./tsconfig.node.json" }]
