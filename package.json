@@ -10,7 +10,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^2.0.2",
+    "@sveltejs/vite-plugin-svelte": "^2.5.3",
     "@tsconfig/svelte": "^5.0.4",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@cloudinary/url-gen": "1.9.1",
+    "dotenv": "^16.4.5",
     "dropzone": "6.0.0-beta.2",
     "svelte-routing": "^2.13.0",
     "two-up-element": "1.0.1"
