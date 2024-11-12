@@ -1,47 +1,54 @@
-# HACKATHON CLOUDINARY
+# StickersLab
 
-**CÓMO PARTICIPAR**
-1. Regístrate en https://cloudinary.com/
-2. Deja tu proyecto en este hilo: POR CREAR
-3. Envía tu proyecto a este formulario: https://forms.monday.com/forms/bc9e0eefc52aca8b49b1fcae951eb910?r=use1
+![Texto alternativo](/public/logo.png)
 
-**:warning: FECHA MÁXIMA DE ENTREGA: 6 Marzo 23:59:59 CET**
+StickersLab es una aplicación que permite a los usuarios cargar imágenes, eliminar fondos, agregar efectos y bordes personalizados para crear stickers únicos. Desarrollada con Svelte, Vite y Cloudinary, esta herramienta ofrece edición en tiempo real, permitiendo aplicar múltiples efectos acumulativos a las imágenes.
 
-**CONSEGUIR MÁS CRÉDITOS GRATIS** 
-https://cld.media/cloudcreateregister
+> Proyecto Fork de [Midu Dev](https://github.com/midudev).
 
-**PREMIOS :gift: **
+## 🌟 Características
 
-*Primer puesto*
-1 teclado Keychron (o tarjeta regalo equivalente)
-1 tarjeta regalo de Amazon de $50 (o tienda local equivalente)
-1 dominio personalizado por 1 año para tu proyecto (hasta 20$)
-Promoción del producto o aplicación en las redes sociales de Cloudinary
+- **Subida de Imágenes**: Carga imágenes en formato PNG, JPG, WebP y JPEG.
+- **Eliminación de Fondos**: Quita el fondo automáticamente.
+- **Aplicación de Bordes y Contornos**: Personaliza los bordes con diferentes colores y grosores.
+- **Edición en Tiempo Real**: Visualiza los cambios al instante a medida que aplicas efectos.
+- **Añadir Múltiples Efectos**: Agrega efectos de manera acumulativa para obtener resultados únicos.
 
-*Segundo puesto*
-1 tarjeta regalo de Amazon de $50 (o tienda local equivalente)
-1 dominio personalizado por 1 año para tu proyecto (hasta 20$)
-Promoción del producto o aplicación en las redes sociales de Cloudinary
+## 📸 Interfaz de Usuario
 
+_Agrega aquí capturas de pantalla de la interfaz de usuario, destacando las funciones clave como el área de carga, la vista previa y la edición en tiempo real._
 
-*Tercer puesto*
-1 tarjeta regalo de Amazon de $25 (o tienda local equivalente)
-Promoción del producto o aplicación en las redes sociales de Cloudinary
+## 🚀 Instalación
 
-*Los demás*
-Swag Pack de Cloudinary
+### Prerrequisitos
 
-**Votaciones**
-Un jurado compuesto por los anteriores ganadores de las Hackathones harán una selección de los 15 mejores proyectos.
+- Node.js (v14 o superior)
+- npm o yarn
 
-**:speech_balloon: Preguntas frecuentes**
-- ¿Se pueden hacer equipos? Sí. Pero el premio es a repartir (lo habláis entre ustedes).
-- ¿Se puede hacer en Deno? Sí, se puede hacer en Deno. No hay problema.
-- ¿Podéis utilizar otras APIs? Sí, pero como mínimo tenéis que usar la API de Cloudinary, para el uso central.
-- ¿Hay mínimo de tamaño o funcionalidad? Sí, como mínimo tiene que usar la API de Cloudinary y resolver algún problema.
-- ¿Qué criterios se siguen para valorar proyectos? Solucionar un problema de usuarios, Creatividad, Buena presentación y Buen Código.
-- ¿Puede ser app móvil? Sí, pero se tiene que poder probar FÁCIL.
-- ¿Es internacional? Sí, puede participar TODO EL MUNDO.
+### Instrucciones de Instalación
 
-**Anuncio en Twitter de la Hackathon:**
-https://twitter.com/cloudinary/status/1626174807384498178?s=46&t=hQ9NJRF5mdmYl4ZjmVcDhw
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/usuario/StickersLab.git
+   cd StickersLab
+   ```
+
+2. Instala las dependencias:
+
+   ```js
+   npm install
+   ```
+
+3. Configura tus variables de entorno en un archivo .env  en la raíz del proyecto, con las siguientes variables:
+
+   ```js
+   VITE_CLOUDINARY_CLOUD_NAME=tu_cloud_name
+   VITE_CLOUDINARY_API_KEY=tu_api_key
+   ```
+
+4. Inicia el servidor de desarrollo:
+
+   ```js
+   npm run dev
+   ```
