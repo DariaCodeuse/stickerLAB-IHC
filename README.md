@@ -14,7 +14,7 @@ StickersLab es una aplicación que permite a los usuarios cargar imágenes, elim
 
 ## 📸 Interfaz de Usuario
 
-![alt text](/public/image.png)
+![Inicio](/public/image.png)
 
 ## 🚀 Instalación
 
