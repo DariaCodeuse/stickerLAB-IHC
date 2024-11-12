@@ -1,5 +1,3 @@
-# StickersLab
-
 ![Texto alternativo](/public/logo.png)
 
 StickersLab es una aplicación que permite a los usuarios cargar imágenes, eliminar fondos, agregar efectos y bordes personalizados para crear stickers únicos. Desarrollada con Svelte, Vite y Cloudinary, esta herramienta ofrece edición en tiempo real, permitiendo aplicar múltiples efectos acumulativos a las imágenes.
@@ -16,7 +14,7 @@ StickersLab es una aplicación que permite a los usuarios cargar imágenes, elim
 
 ## 📸 Interfaz de Usuario
 
-_Agrega aquí capturas de pantalla de la interfaz de usuario, destacando las funciones clave como el área de carga, la vista previa y la edición en tiempo real._
+![alt text](/public/image.png)
 
 ## 🚀 Instalación
 
