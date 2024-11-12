@@ -4,6 +4,8 @@
   import FooterHome from "./components/FooterHome.svelte";
   import Footer from "./components/Footer.svelte";
 
+  import Test from "./Test.svelte";   // TEST ONLY
+
   import Home from "./Home.svelte";
   import CreateManyStickers from "./CreateManyStickers.svelte";
   import CreateStickers from "./CreateSctickers.svelte";
@@ -76,5 +78,16 @@
       <Footer /> <!-- Footer alternativo para funcionalidades -->
     </div>
   </Route>
+
+  <Route path="/test">
+    <div class="h-screen w-full flex flex-col overflow-hidden">
+      <Navbar />
+      <main class="flex-1 w-full">
+        <Test />
+      </main>
+      <Footer /> <!-- Footer alternativo para funcionalidades -->
+    </div>
+  </Route>
+
 </Router>
 
