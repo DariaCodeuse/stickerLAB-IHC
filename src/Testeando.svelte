@@ -62,7 +62,7 @@
       formData.append("file", blob);
       formData.append("upload_preset", "ml_default");
 
-      const uploadRes = await fetch("https://api.cloudinary.com/v1_1/dr4htmwol/image/upload", {
+      const uploadRes = await fetch("https://api.cloudinary.com/v1_1/dvbk40lt2/image/upload", {
         method: "POST",
         body: formData,
       });
