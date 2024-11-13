@@ -1,13 +1,19 @@
 <script>
   import { Cloudinary } from "@cloudinary/url-gen";
+  import { brightness, contrast, saturation } from "@cloudinary/url-gen/actions/adjust";
   import { outline, backgroundRemoval } from "@cloudinary/url-gen/actions/effect";
   import { source } from "@cloudinary/url-gen/actions/overlay";
+  import { scale } from "@cloudinary/url-gen/actions/resize";
   import { text } from "@cloudinary/url-gen/qualifiers/source";
   import { TextStyle } from "@cloudinary/url-gen/qualifiers/textStyle";
+  import { Position } from "@cloudinary/url-gen/qualifiers/position";
+  import { compass } from "@cloudinary/url-gen/qualifiers/gravity";
+  
+  import { imageStatus, modifiedImage, originalImage  } from "./store";
   import { ImageStatus } from "../types.d";
   import { writable } from "svelte/store";
-  import Controladores from "./ControllerCS.svelte";
-  import { imageStatus, modifiedImage, originalImage  } from "./store";
+  import Controladores from "./ControllerEI.svelte";
+  
 
   export let publicId;
   let imageUrl = "";
@@ -21,8 +27,11 @@
   // Variables de control
   let applyOutline = false, outlineWidth = 10, outlineColor = "#000000";
   let applyBackgroundRemoval = false;
-  let applyText = false, textContent = "Texto de Ejemplo", textColor = "#000000", textSize = 20, textFont = "Arial";
-
+  let applyText = false, textContent = "Texto de Ejemplo", textColor = "#000000", textSize = 20, textFont = "Arial", gravity="south", textY=20;
+  let brightnessLevel = 0;
+  let contrastLevel = 0;
+  let saturationLevel = 100;
+  
   let persistentPublicId = "";
   let processingImage = false;
   const showModified = writable(false);
@@ -34,11 +43,28 @@
       img.effect(outline().width(outlineWidth).color(outlineColor));
     }
     if (applyText && textContent.trim()) {
-      img.overlay(
+      // Asegúrate de codificar el texto correctamente
+      const encodedText = encodeURIComponent(textContent);
+
+      img.resize(scale().width(500)).overlay(
         source(
-          text(textContent, new TextStyle(textFont, textSize)).textColor(textColor)
+          text(encodedText, new TextStyle(textFont, textSize))
+            .textColor(textColor)
+        ).position(
+          new Position()
+            .gravity(compass(gravity))
+            .offsetY(textY)
         )
       );
+    }
+    if (brightnessLevel !== 0) {
+      img.adjust(brightness().level(brightnessLevel));
+    }
+    if (contrastLevel !== 0) {
+      img.adjust(contrast().level(contrastLevel));
+    }
+    if (saturationLevel !== 100) { // 100 es el valor por defecto (sin cambio)
+      img.adjust(saturation().level(saturationLevel));
     }
     return img;
   }
@@ -103,6 +129,26 @@
     textContent = event.detail.textContent;
     textSize = event.detail.textSize;
     textFont = event.detail.textFont;
+    textColor = event.detail.textColor;
+    gravity = event.detail.gravity;
+    textY = event.detail.textY;
+    console.log("Color de texto:", textColor);
+    console.log("Posicion Y:", textY);
+    updateImage();
+  }
+
+  function handleUpdateBrightness(event) {
+    brightnessLevel = event.detail.brightnessLevel;
+    updateImage();
+  }
+
+  function handleUpdateContrast(event) {
+    contrastLevel  = event.detail.contrastLevel ;
+    updateImage();
+  }
+
+  function handleUpdateSaturation(event) {
+    saturationLevel  = event.detail.saturationLevel ;
     updateImage();
   }
 </script>
@@ -151,6 +197,9 @@
       on:updateOutline={handleUpdateOutline}
       on:updateBackgroundRemoval={handleUpdateBackgroundRemoval}
       on:updateText={handleUpdateText}
+      on:updateBrightness={handleUpdateBrightness}
+      on:updateContrast={handleUpdateContrast}
+      on:updateSaturation={handleUpdateSaturation}
       imageUrl={$modifiedImage}
     />
   </div>
