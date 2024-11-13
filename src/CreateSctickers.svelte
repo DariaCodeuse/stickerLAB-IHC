@@ -6,7 +6,7 @@
   import Dropzone from "dropzone";
   import "dropzone/dist/dropzone.css";
   import { createEventDispatcher } from "svelte";
-  import Testeando from "./Testeando.svelte";
+  import EditCreateStickers from "./EditCreateStickers.svelte";
 
   // Título y subtítulo
   export let title = "Crea un";
@@ -87,7 +87,7 @@
     </div>
   {:else if $imageStatus === ImageStatus.DONE}
     <!-- Contenedor de `Test` cuando la imagen está lista -->
-    <Testeando {publicId} />
+    <EditCreateStickers {publicId} />
   {/if}
 </div>
 
