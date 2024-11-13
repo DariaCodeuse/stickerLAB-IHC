@@ -4,7 +4,7 @@
   import FooterHome from "./components/FooterHome.svelte";
   import Footer from "./components/Footer.svelte";
 
-  import Test from "./Test.svelte";   // TEST ONLY
+  import Test from "./Testeando.svelte";   // TEST ONLY
 
   import Home from "./Home.svelte";
   import CreateManyStickers from "./CreateManyStickers.svelte";
