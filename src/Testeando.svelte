@@ -135,7 +135,7 @@
     {#if processingImage}
       <p class="text-gray-700 text-lg font-medium mt-10">Procesando imagen...</p>
     {:else}
-      <div class="flex items-center justify-center w-1/2 h-4/5 bg-white shadow-md rounded-md">
+      <div class="flex items-center justify-center w-1/2 h-4/5 bg-white shadow-md">
         <img
           src={$showModified ? $modifiedImage : $originalImage} 
           alt="Imagen con efectos"
