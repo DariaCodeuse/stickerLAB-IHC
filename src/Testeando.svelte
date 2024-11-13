@@ -7,7 +7,7 @@
   import { ImageStatus } from "../types.d";
   import { writable } from "svelte/store";
   import Controladores from "./ControllerCS.svelte";
-  import { imageStatus, modifiedImage } from "./store";
+  import { imageStatus, modifiedImage, originalImage  } from "./store";
 
   export let publicId;
   let imageUrl = "";
@@ -25,11 +25,11 @@
 
   let persistentPublicId = "";
   let processingImage = false;
-  let showModified = false;
+  const showModified = writable(false);
 
   function configureImage() {
     let img = cld.image(persistentPublicId || publicId);
-    
+
     if (applyOutline) {
       img.effect(outline().width(outlineWidth).color(outlineColor));
     }
@@ -77,8 +77,9 @@
     }
   }
 
-  function toggleImage() {
-    showModified = !showModified;
+  // Corrige la función `toggleImage` para usar `showModified.set`
+  function toggleImage(option) {
+    showModified.set(option);
   }
 
   function handleUpdateBackgroundRemoval(event) {
@@ -108,9 +109,26 @@
 
 <div class="flex md:flex-row w-full h-full bg-silver">
   <div class="absolute top-48 left-48 z-10">
-    <button on:click={toggleImage} class="bg-pink-100 text-pink-600 font-semibold py-1 px-4 rounded-md shadow-md hover:bg-pink-200">
-      {showModified ? "Antes" : "Después"}
-    </button>
+    <div class="toggle-container flex bg-gray-200 rounded-full overflow-hidden shadow-inner">
+      <button
+        on:click={() => toggleImage(false)}
+        class="toggle-option px-4 py-2 font-semibold transition-colors duration-300"
+        class:bg-white={$showModified === false}
+        class:text-gray-900={$showModified === false}
+        class:text-gray-600={$showModified === true}
+      >
+        Antes
+      </button>
+      <button
+        on:click={() => toggleImage(true)}
+        class="toggle-option px-4 py-2 font-semibold transition-colors duration-300"
+        class:bg-white={$showModified === true}
+        class:text-gray-900={$showModified === true}
+        class:text-gray-600={$showModified === false}
+      >
+        Después
+      </button>
+    </div>
   </div>
 
   <div class="flex flex-col items-center justify-center w-full md:w-3/5 lg:w-3/5 max-h-[80vh] relative mx-auto overflow-y-auto">
@@ -119,7 +137,7 @@
     {:else}
       <div class="flex items-center justify-center w-1/2 h-4/5 bg-white shadow-md rounded-md">
         <img
-          src={$modifiedImage}
+          src={$showModified ? $modifiedImage : $originalImage} 
           alt="Imagen con efectos"
           class="flex justify-center items-center max-w-full max-h-full object-contain"
         />
@@ -137,3 +155,15 @@
     />
   </div>
 </div>
+
+<style>
+  .toggle-container {
+    display: inline-flex;
+    border-radius: 9999px;
+  }
+  .toggle-option {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+  }
+</style>
