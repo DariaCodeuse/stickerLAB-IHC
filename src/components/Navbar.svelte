@@ -77,6 +77,12 @@
             </svg>
             Edita una Imagen
           </a>
+          <a href="/test" class="flex items-center px-4 py-2 hover:bg-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.656 0 3-1.343 3-3 0-1.657-1.344-3-3-3s-3 1.343-3 3c0 1.657 1.344 3 3 3zm0 3c-3.867 0-7 3.134-7 7v4h14v-4c0-3.866-3.133-7-7-7z" />
+            </svg>
+            Test Only
+          </a>
         </div>
       {/if}
     </div>
